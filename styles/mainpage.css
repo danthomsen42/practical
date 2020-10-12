@@ -10,3 +10,18 @@ body {
     color: black;
     height: 100%;
 }
+
+#basic{
+    margin-top: 5%;
+    margin: auto;
+    width: 75%;
+    background-color: crimson;
+    padding: 5%;
+}
+
+#display{
+    margin:auto;
+    width: 50%;
+    background-color: aqua;
+    margin-top: 5%;
+}
