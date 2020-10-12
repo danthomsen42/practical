@@ -61,9 +61,13 @@
             
             localStorage.setItem('FullName', JSON.stringify(fullName));
             
-            console.log(localStorage.getItem("FullName"));
+            var JsonString = localStorage.getItem("FullName")
             
-            document.getElementById("display").innerHTML = localStorage.getItem("FullName");
+            var parsedJsonString = JSON.parse(JsonString);
+            
+            console.log(parsedJsonString);
+            
+            document.getElementById("display").innerHTML = parsedJsonString.firstName + " " + parsedJsonString.lastName;
             
 //            localStorage.setItem('LastName', lname);
 //            localStorage.setItem('FirstName', fname);
