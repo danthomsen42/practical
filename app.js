@@ -11,9 +11,13 @@ const server = http.createServer((req, res) => {
   res.statusCode = 200;
   res.setHeader('Content-Type', 'text/plain');
   
+    app.use(bodyParser.urlencoded({extended:true}))
     
-    
-    
+    app.post('/',(req,res)=>{
+
+let fName = req.body.firstName; // here you can get the value of from the textbox
+console.log(fName);
+})
     
 //    app.use(bodyParser.urlencoded({ extended: true })); 
 //
@@ -23,7 +27,12 @@ const server = http.createServer((req, res) => {
 //    res.end(`Full name is:${req.body.fname} ${req.body.lname}.`);
 //});
 //
-    res.end('Testing Server: Success');
+    if (fName !== NULL){
+    res.end(fName);    
+    }
+    else{
+        res.end("not displaying info");
+    }
 //    
 });
 
