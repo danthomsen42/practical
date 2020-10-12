@@ -8,11 +8,6 @@
 
 <body>
     <form id="basic">
-        <!--action="http://localhost:3000/example" method="POST"-->
-        <!--
-<textarea>Filler for now
-    </textarea>
--->
 
         First Name: <input type="text" name="firstName" id="fName"><br>
         Last Name: <input type="text" name="lname" id="lName"><br>
@@ -23,13 +18,7 @@
 
 
     <script>
-        
-//        var PeopleIndex;
-//        if(localStorage.getItem("PeopleIndex") === null){
-//            
-//        }
-        
-        
+
         var form = document.getElementById("basic");
 
         function handleForm(event) {
@@ -38,11 +27,11 @@
         form.addEventListener('submit', handleForm);
 
         function getName() {
-            
+
             var firstNameIndex = "FirstName"
-            
-            
-            
+
+
+
             var fname = document.getElementById('fName').value;
 
             if (fname == "") {
@@ -55,25 +44,25 @@
                 alert("Fill out the Last Name field")
                 return false;
             }
-            
-            var fullName = {firstName: fname, lastName: lname}
-            
-            
-            localStorage.setItem('FullName', JSON.stringify(fullName));
-            
-            var JsonString = localStorage.getItem("FullName")
-            
-            var parsedJsonString = JSON.parse(JsonString);
-            
-            console.log(parsedJsonString);
-            
-            document.getElementById("display").innerHTML = "First Name: " + parsedJsonString.firstName + "</br> " + "Last Name: " + parsedJsonString.lastName;
-            
-//            localStorage.setItem('LastName', lname);
-//            localStorage.setItem('FirstName', fname);
-//            console.log(localStorage.getItem('FirstName') + " " + localStorage.getItem('LastName'))
-        }
 
+            var fullName = {
+                firstName: fname,
+                lastName: lname
+            }
+
+
+            localStorage.setItem('FullName', JSON.stringify(fullName));
+
+            var JsonString = localStorage.getItem("FullName")
+
+            var parsedJsonString = JSON.parse(JsonString);
+
+            console.log(parsedJsonString);
+
+            document.getElementById("display").innerHTML = "First Name: " + parsedJsonString.firstName + "</br> " + "Last Name: " + parsedJsonString.lastName;
+
+    
+        }
     </script>
 
 
