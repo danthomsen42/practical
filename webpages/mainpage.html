@@ -7,31 +7,69 @@
 </head>
 
 <body>
-<form id="basic"> <!--action="http://localhost:3000/example" method="POST"--> 
-<!--
+    <form id="basic">
+        <!--action="http://localhost:3000/example" method="POST"-->
+        <!--
 <textarea>Filler for now
     </textarea>
 -->
-    
-    First name: <input type="text" name="firstName" id="fName"><br>
-  Last name: <input type="text" name="lname"><br>
-    
-    <button type=button onclick='getFName()'>Submit info</button>
-</form>
+
+        First Name: <input type="text" name="firstName" id="fName"><br>
+        Last Name: <input type="text" name="lname" id="lName"><br>
+
+        <button type=button onclick='getName()'>Submit info</button>
+    </form>
+    <div id=display></div>
 
 
+    <script>
+        
+//        var PeopleIndex;
+//        if(localStorage.getItem("PeopleIndex") === null){
+//            
+//        }
+        
+        
+        var form = document.getElementById("basic");
 
-<script>var form = document.getElementById("basic");
-function handleForm(event) { event.preventDefault(); } 
-form.addEventListener('submit', handleForm);
-    
-    function getFName(){
-    var fname = document.getElementById('fName').value;
-    
-    localStorage.setItem('FirstName', fname);
-    console.log(localStorage.getItem('FirstName'))
-    }
-    
+        function handleForm(event) {
+            event.preventDefault();
+        }
+        form.addEventListener('submit', handleForm);
+
+        function getName() {
+            
+            var firstNameIndex = "FirstName"
+            
+            
+            
+            var fname = document.getElementById('fName').value;
+
+            if (fname == "") {
+                alert("Fill out the First Name field")
+                return false;
+            }
+
+            var lname = document.getElementById('lName').value;
+            if (lname == "") {
+                alert("Fill out the Last Name field")
+                return false;
+            }
+            
+            var fullName = {firstName: fname, lastName: lname}
+            
+            
+            localStorage.setItem('FullName', JSON.stringify(fullName));
+            
+            console.log(localStorage.getItem("FullName"));
+            
+            document.getElementById("display").innerHTML = localStorage.getItem("FullName");
+            
+//            localStorage.setItem('LastName', lname);
+//            localStorage.setItem('FirstName', fname);
+//            console.log(localStorage.getItem('FirstName') + " " + localStorage.getItem('LastName'))
+        }
+
     </script>
 
 
