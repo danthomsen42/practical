@@ -7,21 +7,32 @@
 </head>
 
 <body>
-<form action="http://localhost:3000/example" method="POST">
+<form id="basic"> <!--action="http://localhost:3000/example" method="POST"--> 
 <!--
 <textarea>Filler for now
     </textarea>
 -->
     
-    First name: <input type="text" name="firstName"><br>
+    First name: <input type="text" name="firstName" id="fName"><br>
   Last name: <input type="text" name="lname"><br>
     
-    <button type=submit>Submit info</button>
+    <button type=button onclick='getFName()'>Submit info</button>
 </form>
 
 
 
-
+<script>var form = document.getElementById("basic");
+function handleForm(event) { event.preventDefault(); } 
+form.addEventListener('submit', handleForm);
+    
+    function getFName(){
+    var fname = document.getElementById('fName').value;
+    
+    localStorage.setItem('FirstName', fname);
+    console.log(localStorage.getItem('FirstName'))
+    }
+    
+    </script>
 
 
 
