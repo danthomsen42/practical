@@ -4,9 +4,15 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../styles/mainpage.css">
-</head>
 
-<body>
+    <script>
+
+        
+    </script>
+    
+    </head>
+
+<body onload="display()">
     <form id="basic">
 
         First Name: <input type="text" name="firstName" id="fName"><br>
@@ -19,6 +25,19 @@
 
     <script>
 
+        
+        function display(){
+                var JsonString = localStorage.getItem("FullName");
+
+        
+    var parsedJsonString = JSON.parse(JsonString);
+        
+                if (JsonString !== null){
+            document.getElementById("display").innerHTML = "First Name: " + parsedJsonString.firstName + "</br> " + "Last Name: " + parsedJsonString.lastName;
+        }
+        }
+        
+        
         var form = document.getElementById("basic");
 
         function handleForm(event) {
